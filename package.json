@@ -1,0 +1,36 @@
+{
+  "name": "login-tamplate-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "backend": "nodemon backend/app.js",
+    "frontend": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "copy": "cp -r frontend/build backend/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ernestobolkin/Login-Tamplate-MERN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ernestobolkin/Login-Tamplate-MERN/issues"
+  },
+  "homepage": "https://github.com/Ernestobolkin/Login-Tamplate-MERN#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15",
+    "react-router-dom": "^6.2.1",
+    "validator": "^13.7.0"
+  }
+}
