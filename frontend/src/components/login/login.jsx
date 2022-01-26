@@ -1,43 +1,39 @@
 import axios from "axios";
 import { useState } from "react";
 
-export const Register = () => {
+export const Login = ({setIsLoggedIn}) => {
   const [user, setUser] = useState({
-    name: "",
     email: "",
     password: "",
   });
   const onChangeHandle = ({ target }) => {
     const { name, value } = target;
-    name === "name" && setUser({ ...user, name: value });
     name === "email" && setUser({ ...user, email: value });
     name === "password" && setUser({ ...user, password: value });
   };
 
-  const onClickHandel = async ()=>{
+  const onClickHandel = () => {
+    console.log("works");
     axios
-    .post("/user/add", user)
-    .then(({ data }) => {
-      console.log("registerd");
-      window.localStorage.setItem("token", data.token);
-    })
-    .catch((error) => {
-      console.log(error.response.data);
-      console.log("Error");
-    });
-  }
+      .post("/user/login", user)
+      .then(({ data }) => {
+        setIsLoggedIn(true)
+        tokenToLocalStorage(data[2]);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        console.log("Error");
+      });
+  };
+
+  const tokenToLocalStorage = (token) => {
+    window.localStorage.setItem("token", token);
+  };
+
   return (
     <>
       <div className="multiContainer">
-        <h2>Register</h2>
-        <div className="ui input">
-          <input
-            onChange={onChangeHandle}
-            name="name"
-            value={user.name}
-            placeholder="Enter full name"
-          ></input>
-        </div>
+        <h2>Login</h2>
         <div className="ui input">
           <input
             onChange={onChangeHandle}
@@ -56,7 +52,7 @@ export const Register = () => {
           ></input>
         </div>
         <button className="ui primary button" onClick={onClickHandel}>
-          Register
+          Login
         </button>
       </div>
     </>
