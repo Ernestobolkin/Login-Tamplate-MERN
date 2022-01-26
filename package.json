@@ -9,7 +9,7 @@
     "frontend": "npm run start --prefix frontend",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "copy": "cp -r frontend/build backend/",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
