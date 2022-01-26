@@ -44,7 +44,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <div className="ui secondary  menu">
+      <div className="ui six item menu">
         <Link
           onClick={(e) => onHandleClick(e.target)}
           name="create"
@@ -53,12 +53,11 @@ export const NavBar = () => {
         >
           Home
         </Link>
-        <div className="right menu">
           {!isLoggedIn && (
             <Link
               onClick={(e) => onHandleClick(e.target)}
               name="search"
-              className="item"
+              className="item right"
               to="/login"
             >
               Login
@@ -70,13 +69,12 @@ export const NavBar = () => {
               onClick={() => onClickLogout()}
               name="search"
               className="item"
-              to="/login"
+              to="/login right"
             >
               Logout
             </Link>
           )}
         </div>
-      </div>
     </>
   );
 };
