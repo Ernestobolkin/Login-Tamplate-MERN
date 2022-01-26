@@ -17,7 +17,7 @@ export const useUserAuth = () => {
       };
 
       function getUserByToken() {
-        axios("http://localhost:8080/user/login", config)
+        axios("/user/login", config)
           .then(({ data }) => {
             data[0] === "Logged In" && setIsLoggedIn(true);
           })
