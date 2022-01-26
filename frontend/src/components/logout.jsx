@@ -12,7 +12,7 @@ export const Logout = ({setIsLoggedIn}) => {
       },
       data: data,
     };
-    axios("http://localhost:8080/user/logout", config)
+    axios("/user/logout", config)
       .then(({ data }) => {
         localStorage.removeItem(token)
         setIsLoggedIn(false)

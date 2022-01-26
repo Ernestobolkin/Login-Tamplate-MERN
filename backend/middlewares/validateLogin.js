@@ -10,7 +10,7 @@ const validateLogin = async (req, res, next) => {
     if (tokenBearer) {
       token = tokenBearer.split(" ")[1];
       if (!jwt.verify(token, "secretToken")) {
-        throw new Error("Token has expired");
+        throw new Error("Token has expired"); 
       }
       user = await User.findByToken(token);
       req.token = token;

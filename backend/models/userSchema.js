@@ -69,7 +69,7 @@ UserSchema.statics.findByCredentials = async (email, password) => {
 UserSchema.statics.findByToken = async (token) => {
   const user = await User.findOne({ "tokens.token": token });
   if (!user) {
-    throw new Error("Token has expiredddd");
+    throw new Error("Token has expired");
   }
   return user;
 };
