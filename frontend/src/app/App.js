@@ -8,7 +8,6 @@ import { Register } from "../components/register";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const loggedIn = useUserAuth();
-  console.log(loggedIn);
   useEffect(() => {
     if (loggedIn) {
       setIsLoggedIn(true);

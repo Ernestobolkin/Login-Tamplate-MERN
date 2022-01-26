@@ -14,11 +14,12 @@ export const Logout = ({setIsLoggedIn}) => {
     };
     axios("/user/logout", config)
       .then(({ data }) => {
-        localStorage.removeItem(token)
+        localStorage.removeItem("token")
         setIsLoggedIn(false)
       })
       .catch((error) => {
-        console.log(token);
+        localStorage.removeItem("token")
+        setIsLoggedIn(false)
         console.log(error.response.data);
       });
   };

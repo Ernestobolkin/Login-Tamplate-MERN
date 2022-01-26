@@ -22,6 +22,7 @@ export const useUserAuth = () => {
             data[0] === "Logged In" && setIsLoggedIn(true);
           })
           .catch((error) => {
+            console.log(error.response.data);
             if(error.response.data.includes("expired")){
               localStorage.removeItem("token")
             }
